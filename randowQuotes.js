@@ -1,6 +1,7 @@
 /*
 	Coded by Kevin, april 11th 2016
 */
+require('bootstrap')
 function inFrame() {
 	try {
 		return window.self !== window.top;
