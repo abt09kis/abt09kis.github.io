@@ -8,7 +8,7 @@ div {
   position: relative;
   z-index: 2; }
 
-body {
+.bg-pic {
   background-color: #B03060;
   font-weight: 400; }
 
