@@ -55,10 +55,10 @@ function getQuote() {
 
 			$("html body").animate({
 				backgroundColor: colors[color]
-			},200);
+			},800);
 			$(".button").animate({
 				backgroundColor: colors[color]
-			}, 200);
+			}, 800);
 		},
 		error: function(err) {
 			alert(err);
