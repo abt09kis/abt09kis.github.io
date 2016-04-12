@@ -4,14 +4,19 @@
 	background: url('http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-11.jpg') no-repeat center fixed;
 }
 */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: baseline;
+}
+body {
+	background-color: #B03060 !important;
+	font-weight: 400;
+}
 div {
 	position: relative;
 	z-index: 2;
-}
-
-.bg-pic {
-	background-color: #B03060;
-	font-weight: 400;
 }
 .footer {
 	width: 960px;
@@ -55,6 +60,7 @@ div {
 			border: none;
 			border-radius: 2px;
 			background-color: #B03060;
+			color: #fff;
 			outline: none;
 			font-size: 0.95em;
 			font-weight: 500;
@@ -68,11 +74,11 @@ div {
 			&#twitter-quote {
 				float: left;
 				padding: 0px;
-				padding-top: 5px;
+				padding-top: 10px;
 				text-align: center;
 				width: 46px;
 				height: 42px;
-				font-size: 1.5em;
+				font-size: 1.25em;
 			}
 			&#new-quote {
 				float: right;
