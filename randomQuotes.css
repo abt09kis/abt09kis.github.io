@@ -23,7 +23,8 @@ div {
 .footer {
   width: 960px;
   text-align: center;
-  display: block; }
+  display: block;
+  color: #fff; }
 
 .quote-frame {
   border-radius: 3px;

@@ -10,7 +10,7 @@ function inFrame() {
 
 }
 
-var colors = ["#B03060", "#C1CC27", "#F68900", "#00F6E3"];
+var colors = ["#B03060", "#C1CC27", "#F68900", "#00F6E3", "#66ff33", "#009999", "#0099cc", "#339966", "#cc0052", "#ff5050"];
 
 var currentQuote = '';
 var currentAuthor = '';
@@ -51,8 +51,7 @@ function getQuote() {
 			});			
 
 			var color = Math.floor(Math.random()*colors.length);
-
-
+			console.log(color);
 			$("html body").animate({
 				backgroundColor: colors[color]
 			},800);
