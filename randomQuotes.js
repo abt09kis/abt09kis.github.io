@@ -54,8 +54,7 @@ function getQuote() {
 
 
 			$("html body").animate({
-				backgroundColor: colors[color],
-				color: colors[color]
+				backgroundColor: colors[color]
 			},200);
 			$(".button").animate({
 				backgroundColor: colors[color]
