@@ -26,7 +26,7 @@ div {
   display: block;
   color: #fff; }
   .footer a {
-    color: #fff; }
+    color: #fff !important; }
 
 .quote-frame {
   border-radius: 3px;
