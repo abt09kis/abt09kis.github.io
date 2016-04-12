@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 /*
 .bg-pic{
 	height: 1300px;
@@ -11,8 +12,11 @@
   vertical-align: baseline;
 }
 body {
-	background-color: #B03060 !important;
+	background-color: #333;
+	color: #333;
+	font-family: 'Open Sans Condensed', sans-serif;
 	font-weight: 400;
+
 }
 div {
 	position: relative;

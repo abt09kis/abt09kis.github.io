@@ -10,7 +10,7 @@ function inFrame() {
 
 }
 
-// var colors = 
+var colors = ["#B03060", "#C1CC27", "#F68900", "#00F6E3"];
 
 var currentQuote = '';
 var currentAuthor = '';
@@ -49,6 +49,17 @@ function getQuote() {
 				}, 500);
 				$("#author").text(data.author);
 			});			
+
+			var color = Math.floor(Math.random()*colors.length);
+
+
+			$("html body").animate({
+				backgroundColor: colors[color],
+				color: colors[color]
+			},200);
+			$(".button").animate({
+				backgroundColor: colors[color]
+			}, 200);
 		},
 		error: function(err) {
 			alert(err);
@@ -57,6 +68,7 @@ function getQuote() {
 			xhr.setRequestHeader("X-Mashape-Authorization", "EcL3AYO3GXmshk63GjyAH3DMuMwWp1QYKYojsnjqCjG6wJkkTU");
 		}
 	});
+
 }
 $(document).ready(function() {
 	getQuote();
