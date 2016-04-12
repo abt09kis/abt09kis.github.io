@@ -59,7 +59,6 @@ function getQuote() {
 	});
 }
 $(document).ready(function() {
-	console.log("bajs");
 	getQuote();
 	$("#new-quote").on('click', getQuote);
 	$("#twitter-quote").on('click', function() {
