@@ -15,6 +15,9 @@ var colors = ["#B03060", "#C1CC27", "#F68900", "#00F6E3", "#66ff33", "#009999", 
 var currentQuote = '';
 var currentAuthor = '';
 
+var phrases = ["Just can't get enough ey?", "Come on time to get creative now.", "Still haven't found anything to your satisfaction?",
+ "Damn it, it's getting hard to figure out what to tell you."];
+
 function openURL(url) {
 	window.open(url, 'Share', 'width=550, height = 400, toolbar=0, scrollbar=1, location=0, statusbar=0, menubar=0, resizeable=0');
 }
@@ -49,9 +52,7 @@ function getQuote() {
 				}, 500);
 				$("#author").text(data.author);
 			});			
-
 			var color = Math.floor(Math.random()*colors.length);
-			console.log(color);
 			$("html body").animate({
 				backgroundColor: colors[color]
 			},800);
@@ -66,11 +67,16 @@ function getQuote() {
 			xhr.setRequestHeader("X-Mashape-Authorization", "EcL3AYO3GXmshk63GjyAH3DMuMwWp1QYKYojsnjqCjG6wJkkTU");
 		}
 	});
-
+}
+function doShit() {
+	var newText = Math.floor(Math.random()*phrases.length);
+	console.log(newText);
+	$("#rndText").text(phrases[newText]);
+	getQuote();
 }
 $(document).ready(function() {
 	getQuote();
-	$("#new-quote").on('click', getQuote);
+	$("#new-quote").on('click', doShit);
 	$("#twitter-quote").on('click', function() {
 		if (!inFrame()) {
 			openURL('https://twitter.com/intent/tweet?hashtags=quotes&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
