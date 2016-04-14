@@ -1,15 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
-/*
-.bg-pic{
-	height: 1300px;
-	background: url('http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-11.jpg') no-repeat center fixed;
-}
-*/
 * {
   margin: 0;
   padding: 0;
   list-style: none;
   vertical-align: baseline; }
+
+.header1 {
+  text-align: center;
+  text-shadow: 1px 1px 2px black;
+  color: #FFF;
+  margin: 10px auto 5px auto; }
 
 body {
   background-color: #333;
