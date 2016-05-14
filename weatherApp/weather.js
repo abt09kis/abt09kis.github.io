@@ -2,10 +2,13 @@
 	Code By Kevin 14/5 -16
 
 */
+
+var lat = "";
+var long = "";
 //Get latitude and longitude;
 function successFunction(position) {
-    var lat = position.coords.latitude;
-    var long = position.coords.longitude;
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
 }
 
 function errorFunction() {
