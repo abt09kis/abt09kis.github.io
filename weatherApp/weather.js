@@ -2,19 +2,19 @@
 	Code By Kevin 14/5 -16
 
 */
-var geo = navigator.geolocation
-var long = "";
-var lat = "";
-
-function getPosition() {
-	if(geo) {
-		geo.getCurrentPosition(function(pos){
-			long = pos.coords.longitude;
-			lat = pos.coords.latitude;
-		})
-	}
+//Get latitude and longitude;
+function successFunction(position) {
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
 }
 
+function errorFunction() {
+	alert('WARNING! your browser appear to not be supporting geolocation');
+} 
+
 $(document).ready(function() {
-	getPosition();
-})
+	//Check if browser supports W3C Geolocation API
+	if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+	} 
+});
