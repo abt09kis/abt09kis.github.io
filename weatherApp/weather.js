@@ -3,8 +3,6 @@
 
 */
 
-var lat = "";
-var long = "";
 var temp  = "";
 var city = "";
 var country = "";
@@ -22,12 +20,16 @@ function errorFunction() {
 function getLocation() {
    	 $.getJSON('http://ipinfo.io', function(data){
  		 console.log(data);
+ 		 city = data.city;
+ 		 country = data.country;
 	});
 }
 
 var weatherAPI ="";
 function getRequestURL() {
-	weatherAPI += "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=4d89068a0a59e956b2aab4c74b849776";
+	var tmp = country.toLowerCase();
+	city += ","+tmp;
+	weatherAPI += "http://api.openweathermap.org/data/2.5/weather?q="Lund,se"&appid=4d89068a0a59e956b2aab4c74b849776";
 }
 
 function getWeatherByLocation() {
