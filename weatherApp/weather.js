@@ -73,10 +73,12 @@ function getWeatherByLocation() {
 
 
 $(document).ready(function() {
+	/*
 	//Check if browser supports W3C Geolocation API
 	if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
 	} 
+	*/
 	getRequestURL();
 	getWeatherByLocation();
 });
