@@ -32,7 +32,7 @@ function getWeatherByLocation() {
 			},
 			error: function(err) {
 				alert(err);
-			}
+			},
 			
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader("openweathermap", "4d89068a0a59e956b2aab4c74b849776");
