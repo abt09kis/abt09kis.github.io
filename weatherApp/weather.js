@@ -16,8 +16,8 @@ function getLocation() {
  		 country = data.country;
 	});
 }
+var tmp = city+","+country;	
 function getRequestURL() {
-	var tmp = city+","+country;	
 	weatherAPI += "http://api.openweathermap.org/data/2.5/weather?q=" + tmp + "&appid=4d89068a0a59e956b2aab4c74b849776";
 }
 
