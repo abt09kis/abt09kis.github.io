@@ -12,7 +12,7 @@ var weatherAPI = "";
 function getLocation() {
    	 $.getJSON('http://ipinfo.io', function(data){
  		 console.log(data);
- 		 city = data.city;
+ 		 city = data.city+","+data.country;
  		 country = data.country;
 	});
 }
