@@ -17,6 +17,8 @@ function successFunction(position) {
 function errorFunction() {
 	alert('WARNING! your browser appear to not be supporting geolocation');
 } 
+
+var weatherAPI = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=4d89068a0a59e956b2aab4c74b849776";
 function getWeatherByLocation() {
 	if(lat !=="" && long !==""){
 		/*
@@ -53,6 +55,5 @@ $(document).ready(function() {
 	if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
 	} 
-	var weatherAPI = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=4d89068a0a59e956b2aab4c74b849776";
 	getWeatherByLocation();
 });
