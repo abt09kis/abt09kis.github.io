@@ -10,7 +10,6 @@ var weatherAPI = '';
 
 $(document).ready(function() {
 	getLocation();
-	getWeatherByLocation(weatherAPI);
 
 	//Switching location API's now trying to use IPLOCATION
 	function getLocation() {
@@ -19,6 +18,7 @@ $(document).ready(function() {
 	 		 city = data.city+','+data.country;
 	 		 country = data.country;
 	 		 weatherAPI += 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=4d89068a0a59e956b2aab4c74b849776';
+	 		 getWeatherByLocation(weatherAPI);
 		});
 	}
 
