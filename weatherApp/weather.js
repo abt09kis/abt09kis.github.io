@@ -7,6 +7,7 @@ var lat = "";
 var long = "";
 var temp  = "";
 var city = "";
+var country = "";
 //Get latitude and longitude;
 function successFunction(position) {
     lat = position.coords.latitude;
@@ -24,9 +25,17 @@ function getWeatherByLocation() {
 		data: {}, 
 		dataType: 'JSON',
 		success: function(data) {
-			
+			temp = data.main.temp;
+			city = data.name;
+			country = sys.country;
+		},
+		error: function(err) {
+			alert(err);
+		},
+		beforeSend: function(xhr) {
+			xhr.setRequestHeader("openweathermap", "4d89068a0a59e956b2aab4c74b849776");
 		}
-	})
+	});
 }
 
 
