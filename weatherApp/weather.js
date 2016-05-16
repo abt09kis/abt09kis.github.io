@@ -9,6 +9,11 @@ $(document).ready(function() {
 	var temp  = "";
 	var city = "";
 	var country = "";
+	//Check if browser supports W3C Geolocation API
+	if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+	} 
+	getWeatherByLocation();
 	//Get latitude and longitude;
 	function successFunction(position) {
 	    lat = position.coords.latitude;
@@ -49,12 +54,4 @@ $(document).ready(function() {
 			});
 		}	
 	}
-
-
-
-	//Check if browser supports W3C Geolocation API
-	if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-	} 
-	getWeatherByLocation();
 });
