@@ -70,6 +70,7 @@ $(document).ready(function() {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
 	} 
 	*/
+	getLocation();
 	getRequestURL();
 	getWeatherByLocation();
 });
