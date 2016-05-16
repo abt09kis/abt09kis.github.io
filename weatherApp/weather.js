@@ -24,16 +24,8 @@ $(document).ready(function() {
 
 	function getWeatherByLocation() {
 			$.getJSON(weatherAPI, function(wd){
+				console.log(wd);
 				temp = wd.main.temp;
 			});
 	}
-
-
-
-	/*
-	//Check if browser supports W3C Geolocation API
-	if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-	} 
-	*/
 });
