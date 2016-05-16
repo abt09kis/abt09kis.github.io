@@ -20,18 +20,9 @@ function errorFunction() {
 } */
 //Switching location API's now trying to use IPLOCATION
 function getLocation() {
-    $.get("http://ipinfo.io", function(location) {
-      console.log(location);
-      
-      $('.location')
-        .append(location.city + ", ")
-        .append(location.region);
-
-      var units = getUnits(location.country);
-      getWeather(location.loc, units);
-
-      //return weather;
-    }, "jsonp");
+   	 $.getJSON('http://ipinfo.io', function(data){
+ 		 console.log(data);
+	});
 }
 
 var weatherAPI ="";
