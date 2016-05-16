@@ -53,13 +53,13 @@ function getWeatherByLocation() {
 			}
 		});
 		}
-		*/
+		
 		$.getJSON(weatherAPI, function(wd){
 			temp = wd.main.temp;
 			country = wd.sys.country;
 			city = wd.name;
 		});
-		
+		*/
 }
 
 
