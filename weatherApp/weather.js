@@ -3,11 +3,11 @@
 
 */
 
-var lat = "";
-var long = "";
-var temp  = "";
-var city = "";
-var country = "";
+var lat = '';
+var long = '';
+var temp  = '';
+var city = '';
+var country = '';
 //Get latitude and longitude;
 function successFunction(position) {
     lat = position.coords.latitude;
@@ -17,9 +17,10 @@ function successFunction(position) {
 function errorFunction() {
 	alert('WARNING! your browser appear to not be supporting geolocation');
 } 
-
+var weatherAPI = 'http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+long+'&appid=4d89068a0a59e956b2aab4c74b849776' 
 function getWeatherByLocation() {
 	if(lat !=="" && long !==""){
+		/*
 		$.ajax({
 			url: 'http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+long+'&appid=4d89068a0a59e956b2aab4c74b849776',
 			type: 'GET',
@@ -28,7 +29,7 @@ function getWeatherByLocation() {
 			success: function(data) {
 				temp = data.main.temp;
 				city = data.name;
-				country = sys.country;
+				country = data.sys.country;
 			},
 			error: function(err) {
 				alert(err);
@@ -37,7 +38,12 @@ function getWeatherByLocation() {
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader("openweathermap", "4d89068a0a59e956b2aab4c74b849776");
 			}
-	
+		});
+		*/
+		$.getJSON(weatherAPI, function(wd){
+			temp = data.main.temp;
+			country = data.sys.country;
+			city = data.name;
 		});
 	}	
 }
