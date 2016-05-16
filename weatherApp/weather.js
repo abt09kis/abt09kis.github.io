@@ -25,11 +25,11 @@ function getLocation() {
 	});
 }
 
-var weatherAPI ="";
+var weatherAPI = "";
 function getRequestURL() {
 	var tmp = country.toLowerCase();
 	city += ","+tmp;
-	weatherAPI += "http://api.openweathermap.org/data/2.5/weather?q="Lund,se"&appid=4d89068a0a59e956b2aab4c74b849776";
+	weatherAPI += "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=4d89068a0a59e956b2aab4c74b849776";
 }
 
 function getWeatherByLocation() {
