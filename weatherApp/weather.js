@@ -37,5 +37,5 @@ $(document).ready(function() {
 	*/
 	getLocation();
 	getRequestURL();
-	getWeatherByLocation();
+	//getWeatherByLocation();
 });
