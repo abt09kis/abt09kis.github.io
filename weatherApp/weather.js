@@ -11,7 +11,7 @@ var weatherAPI = '';
 $(document).ready(function() {
 	getLocationWeather();
 
-	//Switching location API's now trying to use IPLOCATION
+	//Using IPLOCATION API to get access to location data in order to retrieve weather info.
 	function getLocationWeather() {
 	   	 $.getJSON('http://ipinfo.io', function(data){
 	 		 console.log(data);
