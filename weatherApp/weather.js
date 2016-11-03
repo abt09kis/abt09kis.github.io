@@ -22,6 +22,7 @@ $(document).ready(function() {
 			 		// In case the city data is empty, only country is passed on to the API call, resulting in capital!
 			 		weatherAPI += 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=4d89068a0a59e956b2aab4c74b849776';
 			 		// Making the API call here, because otherwise there is no access to the newly changed weatherAPI var.
+			 		//resolve passes val to the function if the promise is resolved.
 			 		resolve(weatherAPI);
 			 		//getWeatherByLocation(weatherAPI);
 	 			});
