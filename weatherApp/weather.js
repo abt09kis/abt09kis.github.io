@@ -1,5 +1,5 @@
 /* 
-	Code By Kevin 14/5 -16
+	Code By Kevin 2016
 
 */
 
@@ -48,15 +48,107 @@ var fullWeather = '';
 			});
 		prom.then(
 			function(val) {
-				//Tänk på att vädret returneras i Kelvin. Alltså temp = 
+				//Tänk på att vädret returneras i Kelvin.
 				console.log(val.main.temp);
 				console.log(val.weather[0].description);
+				var tmp = val.weather[0].icon;
+				var dayOrNight = tmp.substring(tmp.length - 1);
+				console.log(dayOrNight);
+				generateGraphics(val.weather[0].description, dayOrNight);
 			}
 		).catch(
 			function(reason) {
 				consle.log(reason);
 			}
 		)		
+	}
+	
+	//Note that not all the description
+	function generateGraphics(description, timeOfDay) {
+		var skycons = new Skycons({"color": "white"});
+		switch(description) {
+			case "clear sky":
+				if(timeOfDay === "n"){
+					skycons.add("icon1", Skycons.CLEAR_DAY);
+				}else{
+					skycons.add("icon1", Skycons.CLEAR_NIGHT);
+				}
+				skycons.play();
+				break;
+			case "few clouds":
+				if(timeOfDay === "n"){
+						skycons.add("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
+					}else{
+						skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
+					}
+				skycons.play();
+				break;
+			case "scattered cluds":
+				if(timeOfDay === "n"){
+						skycons.add("icon1", Skycons.CLOUDY);
+				}else{
+						skycons.add("icon1", Skycons.CLOUDY);
+				}
+				skycons.play();
+				break;
+			case "broken clouds":
+				if(timeOfDay === "n"){
+						skycons.add("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
+				}else{
+						skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
+				}
+				skycons.play();
+				break;
+			case "shower rain":
+				if(timeOfDay === "n"){
+					skycons.add("icon1", Skycons.RAIN);
+				}else{
+					skycons.add("icon1", Skycons.RAIN);
+				}
+				skycons.play();
+				break;
+			case "rain":
+				if(timeOfDay === "n"){
+					skycons.add("icon1", Skycons.RAIN);
+				}else{
+					skycons.add("icon1", Skycons.RAIN);
+				}
+				skycons.play();
+				break;
+			case "thunderstorm":
+				if(timeOfDay === "n"){
+					skycons.add("icon1", Skycons.RAIN);
+				}else{
+					skycons.add("icon1", Skycons.RAIN);
+				}
+				skycons.play();
+				break;
+			case "snow":
+				if(timeOfDay === "n"){
+					skycons.add("icon1", Skycons.SNOW);
+				}else{
+					skycons.add("icon1", Skycons.SNOW);
+				}
+				skycons.play();
+				break;
+			case "light snow":
+				if(timeOfDay === "n"){
+					skycons.add("icon1", Skycons.SNOW);
+				}else{
+					skycons.add("icon1", Skycons.SNOW);
+				}
+				skycons.play();
+				break;	
+			case "mist":
+				if(timeOfDay === "n"){
+					skycons.add("icon1", Skycons.FOG);
+				}else{
+					skycons.add("icon1", Skycons.FOG);
+				}
+				skycons.play();
+				break;
+			default:
+		}
 	}
 	// Konverterings formel: T(°F) = 20°C × 9/5 + 32 = 68 °F
 	// The function now works!

@@ -13,3 +13,8 @@ h1 {
 	font-size: 0.9em !important;
 	text-align: center;
 }
+.weather {
+	margin: 5px 10px 40px 10px;
+	font-size: 2em;
+	text-align: center;
+}
