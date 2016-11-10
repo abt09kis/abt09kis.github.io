@@ -17,6 +17,7 @@ var fullWeather = '';
 			 		console.log(data);
 			 		city = data.city+','+data.country;
 			 		country = data.country;
+			 		$("#city").text(city);
 			 		// In case the city data is empty, only country is passed on to the API call, resulting in capital!
 			 		weatherAPI += 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=4d89068a0a59e956b2aab4c74b849776';
 			 		// Making the API call here, because otherwise there is no access to the newly changed weatherAPI var.
@@ -49,22 +50,25 @@ var fullWeather = '';
 		prom.then(
 			function(val) {
 				//Tänk på att vädret returneras i Kelvin.
-				console.log(val.main.temp);
 				console.log(val.weather[0].description);
 				var tmp = val.weather[0].icon;
 				var dayOrNight = tmp.substring(tmp.length - 1);
-				console.log(dayOrNight);
-				generateGraphics(val.weather[0].description, dayOrNight);
+				var metImp = "Celsius";
+				var temp = Math.round(val.main.temp - 273.15);
+				generateWeatherGraphics(val.weather[0].description, dayOrNight, metImp, temp);
 			}
 		).catch(
 			function(reason) {
-				consle.log(reason);
+				console.log(reason);
 			}
 		)		
 	}
 	
 	//Note that not all the description
-	function generateGraphics(description, timeOfDay) {
+	function generateWeatherGraphics(description, timeOfDay, scale, temp, city) {
+		$("#metImp").text(scale);
+		$("#temp").text(temp);
+		$("#degree").text(String.fromCharCode(176));
 		var skycons = new Skycons({"color": "white"});
 		switch(description) {
 			case "clear sky":
@@ -147,25 +151,46 @@ var fullWeather = '';
 				}
 				skycons.play();
 				break;
+			case "fog":
+				if(timeOfDay === "n"){
+					skycons.add("icon1", Skycons.FOG);
+				}else{
+					skycons.add("icon1", Skycons.FOG);
+				}
+				skycons.play();
+				break;
 			default:
 		}
 	}
 	// Konverterings formel: T(°F) = 20°C × 9/5 + 32 = 68 °F
 	// The function now works!
-	function metricToImperial(system, temp) {
-		//var system = $("#konvert").val;
-		//var temp = $("#temp").innerHtml;
-		var system1 = system;
-		var temp = temp;
-		if( system1 === "Fahrenheit" ) {
+	function metricToImperial() {
+		var temp = parseInt($('#temp').text(), 10);
+		console.log(temp);
+		var sys = $("#metImp").data('system');
+		console.log(sys);
+		console.log(temp)
+		//var system1 = system;
+		//var temp = temp;
+		if( sys === "Fahrenheit") {
 			temp = (temp-32) / 1.8;
+			$("#metImp").text("Celsius");
+			$('#metImp').data('system', 'Celsius');
+			$("#temp").text(temp);
 		}
 		else {
 			temp = (temp*1.8) + 32;
+			$("#metImp").text("Fahrenheit");
+			$('#metImp').data('system', 'Fahrenheit');
+			$("#temp").text(temp);
 		}
-		console.log(temp);
+		$("#metImp").off("click");
+		$("#metImp").on("click", metricToImperial);
+
+		//console.log(temp);
 	}
 
 $(document).ready(function() {
 	getLocationWeather();
+	$("#metImp").on("click", metricToImperial);
 });

@@ -15,6 +15,34 @@ h1 {
 }
 .weather {
 	margin: 5px 10px 40px 10px;
-	font-size: 2em;
+	font-size: 3em;
 	text-align: center;
+}
+
+#temp {
+	font-size: 1.2em;
+	display: inline;
+	text-shadow: 1px 1px 2px black;
+	color: #FFF;
+}
+#city {
+	font-size: 1.2em;
+	text-shadow: 1px 1px 2px black;
+	color: #FFF;
+}
+#degree {
+	font-size: 1.2em;
+	display: inline;
+	text-shadow: 1px 1px 2px black;
+	color: #FFF;
+}
+a {
+	color: white !important;
+}
+a:hover {
+	color: grey !important;
+}
+
+a:visited {
+	color: white !important;
 }
