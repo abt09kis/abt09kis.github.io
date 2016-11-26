@@ -2,12 +2,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylessheet" href="wiki.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="wiki.css">
 </head>
 <body>
-
-	<script src='vue.js'></script>
-	<script src='wiki.js'></script>
+<div class="header clearfix center-text">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <li role="presentation">
+        <a href="#" v:on-click="realStuff()">The Real Stuff</a>
+      </li>
+      <li>
+      	<a href="#" v-on:click="currentView='search-wiki'">Wikipedia Viewer</a>
+      </li>
+    </ul>
+  </nav>
+  <h3 class="text-muted">Welcome to <strong>THE</strong> Wikipedia viewer</h3>
+</div>
+<div id="app" class="color col-xs-6 col-md-4"></div>
+<!-- The below template is for generating the searchFields for the view component -->
+<template id="searchWiki">
+	<div>
+		<h1>Search Wikipedia </h1>
+			<form action="?" class="search__form" v-on:submit="">
+			<div class="form-group">
+				<label class="col-xs-6 col-sm-4">Search key word(s):</label>
+				<div class="col-sm-10">
+					<input type="text" v-model="title" class="form-control" placeholder="Search">
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4 form-group">
+				<button type="submit" class="btn btn-primary button" :disabled="searching">Search</button>
+			</div>
+			</form>
+	</div>
+</template>
+<script src='vue.js'></script>
+<script src='wiki.js'></script>
 </body>
 </html>

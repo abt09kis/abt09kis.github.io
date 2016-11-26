@@ -1,3 +1,23 @@
-body {
-color: red;
+.header {
+  padding: 15px 15px 20px 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header h1 {
+	padding: 0px 0px 0px 5px;
+}
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+.button {
+	margin-top: 7.5px;
+}
+.center-text {
+	background-color: #ccc;
+	text-align: center;
+}
+.main-view {
+	background-color: #FCFBE3;
 }
